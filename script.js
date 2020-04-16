@@ -1,24 +1,30 @@
-// Séléctionner les aiguilles de montre
-const AIGUILLEHR = document.querySelector("#hour");
-const AIGUILLEMIN = document.querySelector("#minute");
-const AIGUILLESEC = document.querySelector("#second");
+var secondsLine = document.getElementById("second");
+var minutesLine = document.getElementById("minute");
+var hoursLine = document.getElementById("hour");
 
-//Extraire l'heure actuel à l'aide de l'objet Date()
-
-
-//Ajouter l'heure , minite , seconde  dans des varaiables
-
-
-
-// Calculer de degré de mouvement de l'aiguille heure, de l'aiguille minute, de l'aiguille seconde
-// Hint : Tous les aiguilles doivent se déplacer chaque second selon un degré
+function nextMove() {
+    var date = new Date;
+    // SECONDES
+    var seconds = date.getSeconds();
+    secondsDeg = (360 / 60) * seconds;
+    secondsLine.setAttribute("transform", "rotate(" + secondsDeg + ")");
 
 
-// Déplacer les aiguilles 
-function demarrerLaMontre() {
+    // MINUTES
+    var minutes = date.getMinutes();
+    minutesDeg = (360 / 60) * minutes;
+    minutesLine.setAttribute("transform", "rotate(" + minutesDeg + ")");
 
+
+    // HOURS
+    var hours = date.getHours();
+    if (hours > 12) {
+        hours = hours - 12
+    };
+    hoursDeg = (360 / 12) * hours;
+    hoursLine.setAttribute("transform", "rotate(" + hoursDeg + ")");
 
 
 }
-// Exercuter la fonction chaque second
-var interval = setInterval(demarrerLaMontre, 1000);
+nextMove();
+setInterval(nextMove, 1000);
