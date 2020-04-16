@@ -17,3 +17,4 @@ Pour commencer, vous avez un document HTML contenant une image SVG d'une horloge
 
 Le résultat final sera une horloge analogique simple, mais précise, que vous pourrez placer sur n'importe quelle page web à l'avenir.
 
+# C3_Training_DOM_Montre-Analogue
